@@ -1,0 +1,23 @@
+[
+  "tests/test_ai_engine.py::test_crowd_analyzer",
+  "tests/test_ai_engine.py::test_face_privacy_engine",
+  "tests/test_ai_engine.py::test_fire_smoke_detector",
+  "tests/test_ai_engine.py::test_risk_engine",
+  "tests/test_ai_engine.py::test_yolo_detector",
+  "tests/test_api.py::test_drone_telemetry_endpoint",
+  "tests/test_api.py::test_hackathon_demo_stage",
+  "tests/test_api.py::test_health_endpoint",
+  "tests/test_api.py::test_incidents_crud",
+  "tests/test_api.py::test_multilingual_citizen_report",
+  "tests/test_api.py::test_stats_endpoint",
+  "tests/test_drone_sim.py::test_drone_aerial_hud",
+  "tests/test_drone_sim.py::test_drone_controls",
+  "tests/test_drone_sim.py::test_drone_telemetry",
+  "tests/test_responder_service.py::test_dispatch_and_cad_message",
+  "tests/test_responder_service.py::test_haversine_and_bearing",
+  "tests/test_responder_service.py::test_reset_unit",
+  "tests/test_responder_service.py::test_responder_fleet_initialization",
+  "tests/test_sidebar_toggle.py::test_css_sidebar_transitions",
+  "tests/test_sidebar_toggle.py::test_index_html_sidebar_elements",
+  "tests/test_sidebar_toggle.py::test_js_sidebar_toggle_logic"
+]
