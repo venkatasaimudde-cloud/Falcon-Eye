@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FALCON EYE — AI-Powered Smart Public Safety & Emergency Intelligence Platform</title>
+
+  <!-- Leaflet & Font Awesome Styles -->
+  <link rel="stylesheet" href="./css/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <div id="app-container" class="sidebar-collapsed">
+
+    <!-- Mobile / Drawer Backdrop Overlay -->
+    <div id="sidebar-overlay" class="sidebar-overlay" aria-hidden="true"></div>
+
+    <!-- ====================================================================
+         SIDEBAR NAVIGATION
+         ==================================================================== -->
+    <aside id="sidebar" aria-label="Main Navigation">
+      <div class="brand-header">
+        <button class="brand-logo sidebar-logo-btn" id="sidebar-brand-logo" aria-label="Toggle Navigation Sidebar" title="Click to Toggle Sidebar">
+          <i class="fa-solid fa-eye"></i>
+        </button>
+        <div class="brand-text">
+          <h1>FALCON <span>EYE</span></h1>
+          <div class="brand-tagline">SMART PUBLIC SAFETY & AI UAV</div>
+        </div>
+        <button class="sidebar-close-btn" id="sidebar-close-icon-btn" aria-label="Close Sidebar" title="Close Sidebar">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <ul class="nav-menu">
+        <li class="nav-item active" data-view="command-center">
+          <i class="fa-solid fa-gauge-high"></i>
+          <span>Command Center</span>
+        </li>
+        <li class="nav-item" data-view="live-monitoring">
+          <i class="fa-solid fa-video"></i>
+          <span>Live Monitoring</span>
+        </li>
+        <li class="nav-item" data-view="ai-detection">
+          <i class="fa-solid fa-brain"></i>
+          <span>AI Detection Studio</span>
+        </li>
+        <li class="nav-item" data-view="crowd-intelligence">
+          <i class="fa-solid fa-users-viewfinder"></i>
+          <span>Crowd Intelligence</span>
+          <span class="badge-alert">ALERT</span>
+        </li>
+        <li class="nav-item" data-view="face-privacy">
+          <i class="fa-solid fa-user-shield"></i>
+          <span>Face Intelligence & Privacy</span>
+        </li>
+        <li class="nav-item" data-view="drone-intelligence">
+          <i class="fa-solid fa-helicopter"></i>
+          <span>Drone Intelligence</span>
+        </li>
+        <li class="nav-item" data-view="geospatial">
+          <i class="fa-solid fa-map-location-dot"></i>
+          <span>Geospatial GIS</span>
+        </li>
+        <li class="nav-item" data-view="emergency-response">
+          <i class="fa-solid fa-truck-medical"></i>
+          <span>Emergency Response</span>
+        </li>
+        <li class="nav-item" data-view="multilingual">
+          <i class="fa-solid fa-language"></i>
+          <span>Multilingual Reporter</span>
+        </li>
+        <li class="nav-item" data-view="settings">
+          <i class="fa-solid fa-gear"></i>
+          <span>System Settings</span>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <button class="judge-demo-btn" onclick="window.openDemoModal()">
+          <i class="fa-solid fa-play"></i> START PUBLIC SAFETY DEMO
+        </button>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         MAIN CONTENT AREA
+         ==================================================================== -->
+    <main id="main-content">
+
+      <!-- Top Application Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button id="header-ai-logo-btn" class="header-ai-logo-btn" aria-label="Toggle Navigation Sidebar" title="Toggle Navigation (Click AI Logo)" aria-expanded="false">
+            <div class="brand-logo header-brand-logo">
+              <i class="fa-solid fa-eye"></i>
+            </div>
+            <div class="header-brand-text">
+              <span class="header-brand-title">FALCON <span>EYE</span></span>
+              <span class="header-brand-sub"><i class="fa-solid fa-bars-staggered"></i> MENU</span>
+            </div>
+          </button>
+          <div class="header-divider"></div>
+          <div class="current-view-title">
+            <i class="fa-solid fa-satellite-dish" style="color:var(--cyan-primary);"></i>
+            <span id="view-title-text">COMMAND CENTER DASHBOARD</span>
+          </div>
+          <div class="live-pulse-badge">
+            <div class="pulse-dot"></div> SYSTEM ONLINE
+          </div>
+        </div>
+
+        <div class="header-right">
+          <div class="ticker-bar">
+            <span>UAV LINK:</span> <span class="cyan" id="drone-status-text">PATROLLING (Simulated)</span>
+          </div>
+          <button class="audio-toggle-btn" id="audio-toggle-btn" onclick="window.toggleAudioAlerts()">
+            🔇 Audio Alerts: OFF
+          </button>
+          <div class="clock-display" id="utc-clock">00:00:00 UTC</div>
+        </div>
+      </header>
+
+      <!-- ================================================================
+           VIEW 1: COMMAND CENTER DASHBOARD
+           ================================================================ -->
+      <section class="view-container active" id="view-command-center">
+
+        <!-- KPI Grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card alert-critical">
+            <div class="kpi-header">
+              <span class="kpi-title">Active Incidents</span>
+              <i class="fa-solid fa-bell kpi-icon" style="color:var(--critical);"></i>
+            </div>
+            <div class="kpi-value" id="kpi-active-incidents">0</div>
+            <div class="kpi-footer">Requires operator response</div>
+          </div>
+
+          <div class="kpi-card alert-warning">
+            <div class="kpi-header">
+              <span class="kpi-title">Crowd Alerts</span>
+              <i class="fa-solid fa-users kpi-icon" style="color:var(--warning);"></i>
+            </div>
+            <div class="kpi-value" id="kpi-crowd-alerts">0</div>
+            <div class="kpi-footer">Threshold exceeded</div>
+          </div>
+
+          <div class="kpi-card alert-critical">
+            <div class="kpi-header">
+              <span class="kpi-title">Thermal / Fire Alerts</span>
+              <i class="fa-solid fa-fire kpi-icon" style="color:var(--critical);"></i>
+            </div>
+            <div class="kpi-value" id="kpi-fire-alerts">0</div>
+            <div class="kpi-footer">Combustion spectrum</div>
+          </div>
+
+          <div class="kpi-card alert-success">
+            <div class="kpi-header">
+              <span class="kpi-title">Resolved Incidents</span>
+              <i class="fa-solid fa-circle-check kpi-icon" style="color:var(--success);"></i>
+            </div>
+            <div class="kpi-value" id="kpi-resolved-incidents">0</div>
+            <div class="kpi-footer">Audit sealed</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">Monitored Sources</span>
+              <i class="fa-solid fa-video kpi-icon"></i>
+            </div>
+            <div class="kpi-value" id="kpi-monitored-sources">7</div>
+            <div class="kpi-footer">6 CCTV + 1 UAV Drone</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">Avg Ack Time</span>
+              <i class="fa-solid fa-stopwatch kpi-icon"></i>
+            </div>
+            <div class="kpi-value" id="kpi-ack-time">3.5m</div>
+            <div class="kpi-footer">Control-room responsiveness</div>
+          </div>
+        </div>
+
+        <!-- 2-Column Split: Map & Recent Incidents -->
+        <div class="dashboard-grid">
+          <!-- Live Command Map -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title">
+                <i class="fa-solid fa-map-location-dot"></i> Telangana & Andhra Pradesh Real-Time GIS Map
+              </div>
+              <span class="badge-tag" style="color:var(--cyan-primary);">Real Multi-Layer GIS Grid</span>
+            </div>
+
+            <!-- State & City Quick Jump Bar -->
+            <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px;">
+              <button onclick="window.jumpToRegion('all')" class="btn-falcon" style="font-size:10px; padding:3px 8px;">🗺️ Telangana & AP (Full)</button>
+              <button onclick="window.jumpToRegion('tg')" class="btn-falcon" style="font-size:10px; padding:3px 8px;">🏛️ Telangana</button>
+              <button onclick="window.jumpToRegion('ap')" class="btn-falcon" style="font-size:10px; padding:3px 8px;">🌊 Andhra Pradesh</button>
+              <button onclick="window.jumpToRegion('hyd')" class="btn-falcon" style="font-size:10px; padding:3px 8px;">🏙️ Hyderabad</button>
+              <button onclick="window.jumpToRegion('vzg')" class="btn-falcon" style="font-size:10px; padding:3px 8px;">🏖️ Visakhapatnam</button>
+              <button onclick="window.jumpToRegion('bza')" class="btn-falcon" style="font-size:10px; padding:3px 8px;">🏬 Vijayawada</button>
+              <button onclick="window.jumpToRegion('tpt')" class="btn-falcon" style="font-size:10px; padding:3px 8px;">🕉️ Tirupati</button>
+            </div>
+
+            <div id="command-map"></div>
+          </div>
+
+            <!-- Recent Incidents Timeline -->
+            <div class="card-panel">
+              <div class="card-title-bar">
+                <div class="card-title">
+                  <i class="fa-solid fa-clock-rotate-left"></i> Recent Incident Queue
+                </div>
+                <span class="badge-tag" style="color:#22C55E;">● Live Queue</span>
+              </div>
+            <div id="recent-incidents-list" style="max-height: 440px; overflow-y: auto;">
+              <!-- Dynamic items inserted via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Drone HUD Telemetry Card & Camera Previews -->
+        <div class="dashboard-grid">
+          <!-- UAV Drone HUD -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title">
+                <i class="fa-solid fa-helicopter"></i> UAV Falcon-Alpha-1 Telemetry HUD [SIMULATED DEMO]
+              </div>
+              <span class="badge-tag" style="color:#22C55E;">Telemetry Link: 100%</span>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 14px;">
+              <div style="background:rgba(8,15,30,0.6); padding:10px; border-radius:6px; border:1px solid rgba(0,217,255,0.2);">
+                <div style="font-size:10px; color:#94A3B8;">ALTITUDE (AGL)</div>
+                <div style="font-size:18px; font-weight:bold; color:#FFFFFF;" id="hud-alt">65.0 m</div>
+              </div>
+              <div style="background:rgba(8,15,30,0.6); padding:10px; border-radius:6px; border:1px solid rgba(0,217,255,0.2);">
+                <div style="font-size:10px; color:#94A3B8;">GROUND SPEED</div>
+                <div style="font-size:18px; font-weight:bold; color:#FFFFFF;" id="hud-speed">28.5 km/h</div>
+              </div>
+              <div style="background:rgba(8,15,30,0.6); padding:10px; border-radius:6px; border:1px solid rgba(0,217,255,0.2);">
+                <div style="font-size:10px; color:#94A3B8;">BATTERY LIFE</div>
+                <div style="font-size:18px; font-weight:bold; color:#22C55E;" id="hud-battery">94%</div>
+              </div>
+              <div style="background:rgba(8,15,30,0.6); padding:10px; border-radius:6px; border:1px solid rgba(0,217,255,0.2);">
+                <div style="font-size:10px; color:#94A3B8;">COMPASS HEADING</div>
+                <div style="font-size:18px; font-weight:bold; color:#00D9FF;" id="hud-heading">145°</div>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; font-size:12px; color:#94A3B8;">
+              <div>Coordinates: <b style="color:#FFFFFF;" id="hud-latlon">17.3850° N, 78.4867° E</b></div>
+              <div>Sector: <b style="color:#00D9FF;" id="hud-zone">Central Transit Corridor</b></div>
+            </div>
+          </div>
+
+          <!-- System Health & Compliance -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title">
+                <i class="fa-solid fa-server"></i> Platform Health & Compliance
+              </div>
+              <span class="badge-tag" id="system-health-badge" style="color:#22C55E;">OPTIMAL</span>
+            </div>
+            <div style="font-size:12px; color:#E2E8F0; line-height:1.7;">
+              <div>• <b>AI Computer Vision:</b> YOLOv8 Neural Model (Active)</div>
+              <div>• <b>Privacy Engine:</b> Auto-Blurring Enabled By Default</div>
+              <div>• <b>Evidence Vault:</b> SHA-256 Cryptographic Tamper-Proofing</div>
+              <div>• <b>Telemetry Gateway:</b> WebSocket Stream Active (1.5s Interval)</div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ================================================================
+           VIEW 2: LIVE MONITORING
+           ================================================================ -->
+      <section class="view-container" id="view-live-monitoring">
+        <div class="card-panel" style="margin-bottom: 20px;">
+          <div class="card-title-bar">
+            <div class="card-title"><i class="fa-solid fa-video"></i> Multi-Camera Surveillance Grid</div>
+            <span class="badge-tag">Simulated Feeds & Video Playback</span>
+          </div>
+
+          <div class="video-grid">
+            <!-- Feed 1 -->
+            <div class="camera-feed-card">
+              <div class="feed-header">
+                <b>CAM-01-CP (Central Plaza Alpha)</b>
+                <span style="color:#22C55E;">● ONLINE</span>
+              </div>
+              <div class="feed-screen">
+                <img src="../sample_data/sample_crowd.jpg" alt="Central Plaza" />
+              </div>
+            </div>
+
+            <!-- Feed 2 -->
+            <div class="camera-feed-card">
+              <div class="feed-header">
+                <b>CAM-02-MS (Metro Station Entry Gate)</b>
+                <span style="color:#22C55E;">● ONLINE</span>
+              </div>
+              <div class="feed-screen">
+                <video src="../sample_data/sample_surveillance.mp4" autoplay loop muted></video>
+              </div>
+            </div>
+
+            <!-- Feed 3 -->
+            <div class="camera-feed-card">
+              <div class="feed-header">
+                <b>CAM-04-FO (Flyover Junction Traffic)</b>
+                <span style="color:#22C55E;">● ONLINE</span>
+              </div>
+              <div class="feed-screen">
+                <img src="../sample_data/sample_traffic.jpg" alt="Traffic" />
+              </div>
+            </div>
+
+            <!-- Feed 4 -->
+            <div class="camera-feed-card">
+              <div class="feed-header">
+                <b>UAV-ALPHA-1 (Aerial Drone Feed)</b>
+                <span style="color:#00D9FF;">● UAV STREAM</span>
+              </div>
+              <div class="feed-screen">
+                <img src="../sample_data/sample_traffic.jpg" alt="Drone Aerial" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 3: AI DETECTION STUDIO
+           ================================================================ -->
+      <section class="view-container" id="view-ai-detection">
+        <div class="dashboard-grid">
+          <!-- Upload & Inference Control -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-brain"></i> YOLOv8 Object Detection Engine</div>
+              <span class="badge-tag">Real CPU Inference</span>
+            </div>
+
+            <div class="upload-dropzone" onclick="document.getElementById('ai-file-input').click()">
+              <i class="fa-solid fa-cloud-arrow-up" style="font-size:32px; color:var(--cyan-primary); margin-bottom:8px;"></i>
+              <div style="font-size:13px; font-weight:bold;">Upload Image or Test Surveillance Frame</div>
+              <div style="font-size:11px; color:#94A3B8; margin-top:4px;">Supports JPG, PNG, WEBP (Processes with real YOLOv8 nano model)</div>
+            </div>
+            <input type="file" id="ai-file-input" style="display:none;" accept="image/*" onchange="window.runObjectDetectionOnUpload(this)" />
+
+            <div style="margin-top:14px; display:flex; gap:10px;">
+              <button onclick="document.getElementById('ai-file-input').click()" class="btn-falcon btn-falcon-primary">
+                Select File
+              </button>
+              <button onclick="window.loadSampleCrowdDetection()" class="btn-falcon">
+                Load Sample Crowd Image
+              </button>
+            </div>
+
+            <div id="ai-vision-details"></div>
+          </div>
+
+          <!-- Visual Annotated Evidence Output -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-expand"></i> Annotated Computer Vision Canvas</div>
+              <span class="badge-tag" style="color:#22C55E;">Output Stream</span>
+            </div>
+            <div id="ai-vision-preview" style="min-height:280px; display:flex; align-items:center; justify-content:center; background:#040810; border-radius:6px;">
+              <div style="color:#64748B; font-size:12px;">No inference run yet. Upload an image to view real detections.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated Fire & Smoke Classifier Section -->
+        <div class="dashboard-grid">
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-fire"></i> Dedicated Fire & Smoke Classifier</div>
+              <span class="badge-tag" style="color:#EF4444;">Multi-Spectral HSV + Texture</span>
+            </div>
+            <p style="font-size:12px; color:#94A3B8; margin-bottom:12px;">
+              Analyzes thermal combustion spectrum, flicker variance, and low-frequency smoke diffusion without falsely using standard COCO object classes.
+            </p>
+            <input type="file" id="fire-file-input" style="display:none;" accept="image/*" onchange="window.runFireDetectionOnUpload(this)" />
+            <div style="display:flex; gap:10px;">
+              <button onclick="document.getElementById('fire-file-input').click()" class="btn-falcon btn-falcon-danger">
+                Upload Fire Scene Image
+              </button>
+              <button onclick="window.loadSampleFireDetection()" class="btn-falcon">
+                Load Sample Fire Image
+              </button>
+            </div>
+            <div id="fire-vision-details"></div>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-shield"></i> Thermal / Flame Visual Evidence</div>
+            </div>
+            <div id="fire-vision-preview" style="min-height:240px; display:flex; align-items:center; justify-content:center; background:#040810; border-radius:6px;">
+              <div style="color:#64748B; font-size:12px;">Upload a frame to test fire and smoke verification.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 4: CROWD INTELLIGENCE
+           ================================================================ -->
+      <section class="view-container" id="view-crowd-intelligence">
+        <div class="dashboard-grid">
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-users"></i> Intelligent Crowd Density Monitor</div>
+              <span class="badge-tag" style="color:#F59E0B;">Configurable Safety Levels</span>
+            </div>
+            <div style="font-size:12px; color:#E2E8F0; line-height:1.7;">
+              <div>• <b>GREEN (Normal):</b> &lt; 15 Pedestrians (Free flow)</div>
+              <div>• <b>YELLOW (Caution):</b> 15 – 30 Pedestrians (Dense flow)</div>
+              <div>• <b>ORANGE (High):</b> 31 – 50 Pedestrians (Surge hazard)</div>
+              <div>• <b>RED (Critical):</b> &gt; 50 Pedestrians (Stampede risk / Dispersal alert)</div>
+            </div>
+
+            <div style="margin-top:20px;">
+              <h4 style="color:#FFFFFF; font-size:13px; margin-bottom:8px;">Live Crowd Density Analysis</h4>
+              <p style="color:#94A3B8; font-size:12px;">
+                Central Transit Plaza camera stream shows <b>32 pedestrians</b> in the corridor.
+                Status is classified as <b style="color:#F97316;">ORANGE (HIGH DENSITY)</b>. Pre-emptive marshaling advisory generated.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-layer-group"></i> 2D Spatial Crowd Heatmap</div>
+              <span class="badge-tag">Gaussian Kernel Density</span>
+            </div>
+            <div style="width:100%; height:260px; background:#000; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+              <img src="../sample_data/sample_crowd.jpg" style="max-width:100%; max-height:100%; object-fit:contain; filter: contrast(1.2);" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 5: FACE PRIVACY & AUTHORIZED VERIFICATION
+           ================================================================ -->
+      <section class="view-container" id="view-face-privacy">
+        <div class="dashboard-grid">
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-user-shield"></i> Privacy Protection By Default</div>
+              <span class="badge-tag" style="color:#22C55E;">Ethical AI Standard</span>
+            </div>
+            <p style="font-size:12px; color:#94A3B8; margin-bottom:12px;">
+              Falcon Eye automatically applies Gaussian blurring to all detected faces in video and image feeds to guarantee civil liberties and public privacy.
+            </p>
+            <label style="display:flex; align-items:center; gap:8px; font-size:13px; color:#FFFFFF; cursor:pointer; margin-bottom:14px;">
+              <input type="checkbox" id="face-blur-toggle" checked style="accent-color:var(--cyan-primary);" />
+              <span>Enable Privacy Face Blurring (Default)</span>
+            </label>
+
+            <input type="file" id="face-file-input" style="display:none;" accept="image/*" onchange="window.runFacePrivacyOnUpload(this, document.getElementById('face-blur-toggle'))" />
+            <div style="display:flex; gap:10px;">
+              <button onclick="document.getElementById('face-file-input').click()" class="btn-falcon btn-falcon-primary">
+                Upload Image for Privacy Test
+              </button>
+              <button onclick="window.loadSampleFacePrivacy()" class="btn-falcon">
+                Load Sample Face Image
+              </button>
+            </div>
+            <div id="face-vision-details"></div>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-id-badge"></i> Authorized Consent-Based Staff Verification</div>
+              <span class="badge-tag" style="color:#00D9FF;">Demonstration Registry</span>
+            </div>
+            <p style="font-size:12px; color:#94A3B8; margin-bottom:12px;">
+              Demonstrates access clearance verification for consenting security personnel only.
+              Test Badges: <code style="color:#00D9FF;">FE-SEC-091</code> (Vikram Sharma) or <code style="color:#00D9FF;">FE-SEC-042</code> (Ananya Rao).
+            </p>
+
+            <div style="display:flex; gap:8px;">
+              <input type="text" id="badge-code-input" placeholder="Enter Staff Badge ID (e.g. FE-SEC-091)" style="flex:1; background:rgba(8,15,30,0.8); border:1px solid var(--border-cyan); border-radius:4px; padding:8px 12px; color:#FFFFFF; font-size:12px;" />
+              <button onclick="window.verifyBadgeCode()" class="btn-falcon btn-falcon-primary">Verify</button>
+            </div>
+            <div id="badge-verify-result"></div>
+          </div>
+        </div>
+
+        <div class="card-panel" style="margin-top:20px;">
+          <div class="card-title-bar">
+            <div class="card-title"><i class="fa-solid fa-image"></i> Face Privacy Inspection Output</div>
+          </div>
+          <div id="face-vision-preview" style="min-height:260px; display:flex; align-items:center; justify-content:center; background:#040810; border-radius:6px;">
+            <div style="color:#64748B; font-size:12px;">Upload an image containing faces to inspect automated privacy blurring.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 6: DRONE INTELLIGENCE & TELEMETRY
+           ================================================================ -->
+      <section class="view-container" id="view-drone-intelligence">
+        <div class="dashboard-grid">
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-helicopter"></i> UAV Falcon SkyScout-X4 Controller</div>
+              <span class="badge-tag" style="color:#22C55E;">SIMULATED TELEMETRY</span>
+            </div>
+            <p style="font-size:12px; color:#94A3B8; margin-bottom:16px;">
+              Software-based kinematics simulator tracking realistic battery drain, GPS waypoints, and flight modes.
+            </p>
+
+            <div style="display:flex; gap:10px;">
+              <button onclick="window.sendDroneCommand('START')" class="btn-falcon btn-falcon-primary">
+                ▶ Resume Patrol
+              </button>
+              <button onclick="window.sendDroneCommand('STOP')" class="btn-falcon">
+                ⏸ Hover / Hold
+              </button>
+              <button onclick="window.sendDroneCommand('RTH')" class="btn-falcon btn-falcon-danger">
+                🏠 Return to Base (RTH)
+              </button>
+            </div>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-crosshairs"></i> Simulated Aerial Camera Feed</div>
+              <span class="badge-tag">HUD Crosshairs Overlay</span>
+            </div>
+            <div style="width:100%; height:260px; background:#000; border-radius:6px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+              <img src="/api/drone/feed" style="max-width:100%; max-height:100%; object-fit:contain;" alt="Drone feed" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 7: GEOSPATIAL GIS & ROUTING
+           ================================================================ -->
+      <section class="view-container" id="view-geospatial">
+        <div class="card-panel">
+          <div class="card-title-bar">
+            <div class="card-title"><i class="fa-solid fa-map-location-dot"></i> Telangana & Andhra Pradesh Geospatial GIS Map</div>
+            <span class="badge-tag">OpenStreetMap • Esri Satellite • Dark Matter</span>
+          </div>
+
+          <!-- State & City Quick Jump Bar -->
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;">
+            <button onclick="window.jumpToRegion('all')" class="btn-falcon btn-falcon-primary" style="font-size:11px; padding:4px 10px;">🗺️ Telangana & AP (Full States)</button>
+            <button onclick="window.jumpToRegion('tg')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🏛️ Telangana State</button>
+            <button onclick="window.jumpToRegion('ap')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🌊 Andhra Pradesh State</button>
+            <button onclick="window.jumpToRegion('hyd')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🏙️ Hyderabad Metro</button>
+            <button onclick="window.jumpToRegion('vzg')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🏖️ Visakhapatnam Port & Coast</button>
+            <button onclick="window.jumpToRegion('bza')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🏬 Vijayawada / Amaravati</button>
+            <button onclick="window.jumpToRegion('tpt')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🕉️ Tirupati Foothills</button>
+            <button onclick="window.jumpToRegion('wgl')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🏰 Warangal</button>
+            <button onclick="window.jumpToRegion('knl')" class="btn-falcon" style="font-size:11px; padding:4px 10px;">🌾 Kurnool</button>
+          </div>
+
+          <div id="gis-map" style="height:580px;"></div>
+        </div>
+      </section>
+
+      <!-- ================================================================
+           VIEW 8: EMERGENCY RESPONSE & DISPATCH
+           ================================================================ -->
+      <section class="view-container" id="view-emergency-response">
+        <!-- Quick Incident Dispatch Bar -->
+        <div class="card-panel" style="margin-bottom:16px; padding:14px 18px;">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px;">
+            <div>
+              <span style="font-size:14px; font-weight:800; color:#FFFFFF; letter-spacing:0.5px;">
+                🚨 INTER-AGENCY EMERGENCY DISPATCH & LIVE TRACKING
+              </span>
+              <div style="font-size:11px; color:#94A3B8; margin-top:2px;">
+                Direct CAD & TETRA Radio alerts to Police Commissionerates and State Fire Stations with live GPS navigation.
+              </div>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px; align-items:center;">
+              <select id="quick-dispatch-incident" style="background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:6px 10px; border-radius:4px; font-size:12px; max-width:220px;">
+                <option value="">Select Target Incident...</option>
+              </select>
+              <select id="quick-dispatch-unit" style="background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:6px 10px; border-radius:4px; font-size:12px; max-width:220px;">
+                <option value="">Select Patrol Unit...</option>
+              </select>
+              <button onclick="window.handleQuickDispatch()" class="btn-falcon btn-falcon-danger" style="font-size:12px;">
+                <i class="fa-solid fa-bullhorn"></i> Alert Station & Dispatch
+              </button>
+              <button onclick="window.resetAllResponders()" class="btn-falcon" style="font-size:12px;">
+                <i class="fa-solid fa-rotate-left"></i> Reset All Patrols
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1.15fr 0.85fr; gap:16px;">
+          <!-- Left: Live Patrolling Police & Fire Responders Board -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-shield-halved"></i> Patrolling Police & Fire Units (Live GPS Telemetry)</div>
+              <span class="badge-tag" style="color:#00D9FF;"><span class="live-dot"></span> Real-Time Kinematics</span>
+            </div>
+            <div style="font-size:11px; color:#94A3B8; margin-bottom:12px;">
+              Live GPS feeds from cruising patrol interceptors and ready fire tenders across Telangana and Andhra Pradesh.
+            </div>
+            <div id="teams-card-grid" style="display:flex; flex-direction:column; gap:10px; max-height:640px; overflow-y:auto; padding-right:4px;">
+              <!-- Dynamic units inserted via JS -->
+            </div>
+          </div>
+
+          <!-- Right: Automated Departmental CAD / Radio Message Stream -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-tower-broadcast"></i> Departmental CAD & Radio Dispatch Stream</div>
+              <span class="badge-tag" style="color:#22C55E;">Station Alerts</span>
+            </div>
+            <div style="font-size:11px; color:#94A3B8; margin-bottom:12px;">
+              Automated digital dispatches transmitted to respective Police Stations, Fire Stations, and 108 Emergency Bays.
+            </div>
+            <div id="cad-messages-container" style="display:flex; flex-direction:column; gap:8px; max-height:640px; overflow-y:auto; padding-right:4px;">
+              <div style="color:#64748B; font-size:12px; text-align:center; padding:20px;">Awaiting live emergency dispatches...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- ================================================================
+           VIEW 10: MULTILINGUAL CITIZEN REPORTER
+           ================================================================ -->
+      <section class="view-container" id="view-multilingual">
+        <div class="dashboard-grid">
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-language"></i> Citizen Emergency Report (Telugu / Hindi / English)</div>
+              <span class="badge-tag">Automatic Triage</span>
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <label style="font-size:11px; color:#94A3B8;">Select Language:</label>
+              <select id="citizen-lang-select" style="width:100%; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:8px; border-radius:4px; margin-top:4px;">
+                <option value="auto">Auto-Detect Language</option>
+                <option value="te">Telugu (తెలుగు)</option>
+                <option value="hi">Hindi (हिन्दी)</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <label style="font-size:11px; color:#94A3B8;">Location Name:</label>
+              <input type="text" id="citizen-loc-input" placeholder="e.g. South Bus Depot Bay 4" style="width:100%; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:8px; border-radius:4px; margin-top:4px;" />
+            </div>
+
+            <div style="margin-bottom:12px;">
+              <label style="font-size:11px; color:#94A3B8;">Incident Description:</label>
+              <textarea id="citizen-text-input" rows="4" placeholder="ఉదాహరణ: ఒక వ్యక్తి బస్ స్టాండ్ లో కింద పడిపోయాడు, సహాయం కావాలి / यहाँ आग लगी है" style="width:100%; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:8px; border-radius:4px; margin-top:4px; font-family:sans-serif;"></textarea>
+            </div>
+
+            <div style="display:flex; gap:8px;">
+              <button onclick="window.submitCitizenReport()" class="btn-falcon btn-falcon-primary">
+                Submit Emergency Report
+              </button>
+              <button onclick="document.getElementById('citizen-text-input').value='ఒక వ్యక్తి బస్ స్టాండ్ లో కింద పడిపోయాడు, సహాయం కావాలి'; document.getElementById('citizen-lang-select').value='te';" class="btn-falcon">
+                Sample Telugu
+              </button>
+              <button onclick="document.getElementById('citizen-text-input').value='मार्केट स्क्वायर में भारी भीड़ और भगदड़ की स्थिति है'; document.getElementById('citizen-lang-select').value='hi';" class="btn-falcon">
+                Sample Hindi
+              </button>
+            </div>
+          </div>
+
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title"><i class="fa-solid fa-receipt"></i> Structured Control-Room Dossier</div>
+            </div>
+            <div id="citizen-report-result">
+              <div style="color:#64748B; font-size:12px;">Submit a citizen report to view structured translation and triage priority.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <!-- ================================================================
+           VIEW 12: SYSTEM SETTINGS & REGIONAL CONFIGURATION
+           ================================================================ -->
+      <section class="view-container" id="view-settings">
+        
+        <!-- Header Banner -->
+        <div class="card-panel" style="margin-bottom:20px; border-left: 3px solid #00D9FF;">
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <div>
+              <h2 style="color:#FFFFFF; font-size:18px; font-weight:800; letter-spacing:0.5px;">
+                <i class="fa-solid fa-gear" style="color:#00D9FF; margin-right:8px;"></i>
+                COMMAND CENTER SETTINGS & JURISDICTION
+              </h2>
+              <p style="font-size:12px; color:#94A3B8; margin-top:4px;">
+                Configure regional map jurisdiction, real-time tile layers, AI neural thresholds, and multilingual API parameters.
+              </p>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button onclick="window.saveSettings()" class="btn-falcon btn-falcon-primary">
+                <i class="fa-solid fa-floppy-disk"></i> Save & Apply
+              </button>
+              <button onclick="window.resetSettings()" class="btn-falcon">
+                <i class="fa-solid fa-rotate-left"></i> Reset Defaults
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+
+          <!-- Card 1: Geospatial & State Map Configuration -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title">
+                <i class="fa-solid fa-map-location-dot"></i> Geospatial & Real Map Configuration
+              </div>
+              <span class="badge-tag" style="color:#00D9FF;">Telangana & Andhra Pradesh</span>
+            </div>
+
+            <div style="margin-bottom:16px;">
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:6px;">
+                Default Operational Map Focus:
+              </label>
+              <select id="setting-map-region" style="width:100%; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:10px; border-radius:4px; font-size:12px;">
+                <option value="all">🗺️ Telangana & Andhra Pradesh (Complete States - Dual State Grid)</option>
+                <option value="tg">🏛️ Telangana State (Hyderabad, Warangal, Karimnagar, Nizamabad)</option>
+                <option value="ap">🌊 Andhra Pradesh State (Visakhapatnam, Vijayawada, Guntur, Tirupati, Kurnool)</option>
+                <option value="hyd">🏙️ Hyderabad Metro Area (Urban Transit Corridor)</option>
+                <option value="vzg">🏖️ Visakhapatnam Port & Coastal Sector</option>
+                <option value="bza">🏬 Vijayawada / Amaravati Capital Region</option>
+                <option value="tpt">🕉️ Tirupati Pilgrim Security Zone</option>
+                <option value="wgl">🏰 Warangal Cultural & Heritage City</option>
+                <option value="knl">🌾 Kurnool Rayalaseema Gateway</option>
+              </select>
+              <span style="font-size:11px; color:#94A3B8; margin-top:4px; display:block;">
+                Sets the initial camera viewport when Command Center or GIS tab is loaded.
+              </span>
+            </div>
+
+            <div style="margin-bottom:16px;">
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:6px;">
+                Default Real Map Tile Style:
+              </label>
+              <select id="setting-map-tiles" style="width:100%; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:10px; border-radius:4px; font-size:12px;">
+                <option value="osm">🗺️ Real OpenStreetMap (Standard Roads, Districts, Cities - Recommended)</option>
+                <option value="satellite">🛰️ Real Esri World Imagery (High-Resolution Satellite Photo)</option>
+                <option value="dark">🌌 CartoDB Dark Matter (Tactical Cyberpunk Mode)</option>
+                <option value="light">☀️ CartoDB Positron (Clean Light Road Map)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:8px;">
+                Active Map Layer Markers:
+              </label>
+              <div style="display:flex; flex-direction:column; gap:8px; font-size:12px; color:#E2E8F0;">
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="checkbox" id="setting-layer-incidents" checked style="accent-color:#00D9FF;" />
+                  <span>Show Active Incidents (Pulsing Risk Pins)</span>
+                </label>
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="checkbox" id="setting-layer-cameras" checked style="accent-color:#00D9FF;" />
+                  <span>Show Surveillance Cameras (📹 13 State Cameras)</span>
+                </label>
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="checkbox" id="setting-layer-facilities" checked style="accent-color:#00D9FF;" />
+                  <span>Show Hospitals, Fire Stations & Police HQs (🏥/🚒 14 Facilities)</span>
+                </label>
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="checkbox" id="setting-layer-teams" checked style="accent-color:#00D9FF;" />
+                  <span>Show Emergency Response Teams (🚨 8 Rapid Units)</span>
+                </label>
+                <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                  <input type="checkbox" id="setting-layer-drone" checked style="accent-color:#00D9FF;" />
+                  <span>Show Real-Time UAV Drone Telemetry</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: AI Computer Vision & Neural Inference -->
+          <div class="card-panel">
+            <div class="card-title-bar">
+              <div class="card-title">
+                <i class="fa-solid fa-brain"></i> AI Detection & Privacy Engine
+              </div>
+              <span class="badge-tag" style="color:#22C55E;">YOLOv8 Active</span>
+            </div>
+
+            <div style="margin-bottom:16px;">
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:6px;">
+                Object Detection Confidence Threshold:
+              </label>
+              <div style="display:flex; align-items:center; gap:12px;">
+                <input type="range" id="setting-conf-slider" min="10" max="90" value="35" step="5" style="flex:1; accent-color:#00D9FF;" oninput="document.getElementById('conf-val-label').innerText = (this.value/100).toFixed(2);" />
+                <span id="conf-val-label" style="font-family:var(--font-mono); font-size:14px; font-weight:bold; color:#00D9FF; min-width:40px;">0.35</span>
+              </div>
+              <span style="font-size:11px; color:#94A3B8; margin-top:4px; display:block;">
+                Lower values detect more objects; higher values suppress false positives.
+              </span>
+            </div>
+
+            <div style="margin-bottom:16px;">
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:6px;">
+                Ethical Face Privacy Mode:
+              </label>
+              <select id="setting-face-privacy" style="width:100%; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:10px; border-radius:4px; font-size:12px;">
+                <option value="blur_all">🛡️ Auto-Blur All Faces (Ethical AI Standard - Active)</option>
+                <option value="badges_only">🪪 Blur Faces Except Authorized Personnel Badges</option>
+                <option value="disabled">⚠️ Privacy Blurring Disabled (Audit Logging Only)</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom:16px;">
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:6px;">
+                Fire & Smoke Spectral Sensitivity:
+              </label>
+              <select id="setting-fire-sens" style="width:100%; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:10px; border-radius:4px; font-size:12px;">
+                <option value="balanced">⚡ Balanced (HSV + YCbCr + Flicker Variance)</option>
+                <option value="high">🔥 High Sensitivity (Immediate Flame Alert)</option>
+                <option value="conservative">🛡️ Conservative (Requires Multi-Frame Confirmation)</option>
+              </select>
+            </div>
+
+            <div>
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:6px;">
+                Audio Emergency Sirens:
+              </label>
+              <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:12px; color:#E2E8F0;">
+                <input type="checkbox" id="setting-audio-chime" style="accent-color:#00D9FF;" onchange="window.toggleAudioAlerts();" />
+                <span>Play Sound Chime on CRITICAL & HIGH Incidents</span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Card 3: Multilingual & Cloud AI Key Configuration -->
+        <div class="card-panel" style="margin-top:20px;">
+          <div class="card-title-bar">
+            <div class="card-title">
+              <i class="fa-solid fa-language"></i> Multilingual Emergency Assistant (Telugu / Hindi / English)
+            </div>
+            <span class="badge-tag" style="color:#00D9FF;">Gemini 3.8 Flash Ready</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns: 2fr 1fr; gap:20px; align-items:center;">
+            <div>
+              <label style="font-size:12px; font-weight:bold; color:#FFFFFF; display:block; margin-bottom:6px;">
+                Google Gemini API Key:
+              </label>
+              <div style="display:flex; gap:8px;">
+                <input type="password" id="setting-gemini-key" placeholder="Enter Gemini API Key or load from .env" value="" style="flex:1; background:#080F1E; border:1px solid var(--border-cyan); color:#FFFFFF; padding:10px 12px; border-radius:4px; font-size:12px; font-family:var(--font-mono);" />
+                <button type="button" onclick="const f=document.getElementById('setting-gemini-key'); f.type = f.type==='password'?'text':'password';" class="btn-falcon" style="padding:0 12px;">
+                  👁️
+                </button>
+                <button type="button" onclick="window.testGeminiKey()" class="btn-falcon btn-falcon-primary">
+                  Test Key
+                </button>
+              </div>
+              <div id="gemini-key-status" style="font-size:11px; color:#22C55E; margin-top:6px;">
+                ✓ Active Google Gemini API Key configured in platform environment.
+              </div>
+            </div>
+
+            <div style="background:rgba(8,15,30,0.6); border:1px solid rgba(0,217,255,0.2); border-radius:6px; padding:14px; font-size:11px; color:#94A3B8; line-height:1.7;">
+              <b style="color:#FFFFFF;">State Dialects Supported:</b>
+              <div>• <b>Telugu (తెలుగు):</b> Telangana & Andhra vernacular</div>
+              <div>• <b>Hindi (हिन्दी):</b> Devanagari citizen emergency inputs</div>
+              <div>• <b>English:</b> Control-room standardized triage translation</div>
+              <div>• <b>Fallback:</b> Instant zero-latency offline dictionary</div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ====================================================================
+       HACKATHON 9-STAGE JUDGE DEMO MODAL
+       ==================================================================== -->
+  <div class="modal-overlay" id="demo-modal">
+    <div class="demo-modal-box">
+      <div class="demo-modal-header">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div style="width:12px; height:12px; border-radius:50%; background:#00D9FF; box-shadow:0 0 10px #00D9FF;"></div>
+          <h2>FALCON EYE — 9-STAGE HACKATHON DEMONSTRATION</h2>
+        </div>
+        <button onclick="window.closeDemoModal()" style="background:none; border:none; color:#94A3B8; font-size:18px; cursor:pointer;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="demo-modal-body">
+        <!-- 9-Stage Stepper Progress -->
+        <div class="stepper-progress">
+          <div class="step-node active" id="step-node-1"><div class="step-circle">1</div><div class="step-label">Stream</div></div>
+          <div class="step-node" id="step-node-2"><div class="step-circle">2</div><div class="step-label">YOLO</div></div>
+          <div class="step-node" id="step-node-3"><div class="step-circle">3</div><div class="step-label">Tally</div></div>
+          <div class="step-node" id="step-node-4"><div class="step-circle">4</div><div class="step-label">Crowd</div></div>
+          <div class="step-node" id="step-node-5"><div class="step-circle">5</div><div class="step-label">Incident</div></div>
+          <div class="step-node" id="step-node-6"><div class="step-circle">6</div><div class="step-label">GIS</div></div>
+          <div class="step-node" id="step-node-7"><div class="step-circle">7</div><div class="step-label">Verify</div></div>
+          <div class="step-node" id="step-node-8"><div class="step-circle">8</div><div class="step-label">Dispatch</div></div>
+          <div class="step-node" id="step-node-9"><div class="step-circle">9</div><div class="step-label">Report</div></div>
+        </div>
+
+        <div class="demo-stage-screen">
+          <h3 id="demo-stage-title" style="color:#00D9FF; font-size:16px; margin-bottom:6px;">Stage 1: Video Ingestion</h3>
+          <p id="demo-stage-desc" style="font-size:12px; color:#E2E8F0;"></p>
+          <div id="demo-stage-metrics"></div>
+          <div id="demo-screen-preview" style="margin-top:14px;"></div>
+        </div>
+      </div>
+
+      <div class="demo-modal-footer">
+        <div style="display:flex; gap:8px;">
+          <button onclick="window.prevDemoStage()" class="btn-falcon">
+            <i class="fa-solid fa-backward"></i> Previous
+          </button>
+          <button onclick="window.nextDemoStage()" class="btn-falcon btn-falcon-primary">
+            Next Stage <i class="fa-solid fa-forward"></i>
+          </button>
+        </div>
+
+        <div style="display:flex; gap:8px;">
+          <button onclick="window.toggleAutoPlay()" class="btn-falcon" id="demo-autoplay-btn">
+            ▶ Auto Play
+          </button>
+          <button onclick="window.closeDemoModal()" class="btn-falcon">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Leaflet GIS Engine (Local + CDN Fallback) -->
+  <script src="./js/leaflet.js"></script>
+  <script>
+    if (typeof L === 'undefined') {
+      document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"><\\/script>');
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="./js/map.js"></script>
+  <script src="./js/telemetry.js"></script>
+  <script src="./js/demo.js"></script>
+  <script src="./js/app.js"></script>
+
+</body>
+</html>

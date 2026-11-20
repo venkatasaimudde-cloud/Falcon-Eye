@@ -1,0 +1,1201 @@
+{
+  "incidents": [
+    {
+      "id": 1,
+      "incident_number": "INC-FE-20261119-001",
+      "title": "Dense Pedestrian Surge at Metro Exit",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "ASSIGNED",
+      "lat": 17.3895,
+      "lon": 78.489,
+      "location_name": "Metro Station Entry Gate 3, Hyderabad (Telangana)",
+      "confidence": 0.88,
+      "risk_score": 68.0
+    },
+    {
+      "id": 2,
+      "incident_number": "INC-FE-20261119-002",
+      "title": "Two-Wheeler & Auto-Rickshaw Collision",
+      "category": "TRAFFIC_COLLISION",
+      "severity": "MEDIUM",
+      "status": "ASSIGNED",
+      "lat": 17.401,
+      "lon": 78.478,
+      "location_name": "Arterial Ring Road Intersection, Hyderabad (Telangana)",
+      "confidence": 0.81,
+      "risk_score": 52.0
+    },
+    {
+      "id": 3,
+      "incident_number": "INC-FE-20261119-003",
+      "title": "Heavy Gathering at Bhadrakali Temple Festival",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.982,
+      "lon": 79.59,
+      "location_name": "Bhadrakali Temple Ghats, Warangal (Telangana)",
+      "confidence": 0.85,
+      "risk_score": 64.0
+    },
+    {
+      "id": 4,
+      "incident_number": "INC-FE-20261119-004",
+      "title": "Coastal High Tide & Beachfront Crowd Advisory",
+      "category": "HAZARD",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.713,
+      "lon": 83.325,
+      "location_name": "RK Beach Promenade, Visakhapatnam (Andhra Pradesh)",
+      "confidence": 0.92,
+      "risk_score": 74.0
+    },
+    {
+      "id": 5,
+      "incident_number": "INC-FE-20261119-005",
+      "title": "High Traffic Gridlock at Benz Circle",
+      "category": "TRAFFIC_COLLISION",
+      "severity": "MEDIUM",
+      "status": "ASSIGNED",
+      "lat": 16.5005,
+      "lon": 80.652,
+      "location_name": "Benz Circle Intersection, Vijayawada (Andhra Pradesh)",
+      "confidence": 0.86,
+      "risk_score": 58.0
+    },
+    {
+      "id": 6,
+      "incident_number": "INC-FE-20261119-006",
+      "title": "Pilgrim Footfall Surge at Alipiri Gate",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 13.652,
+      "lon": 79.391,
+      "location_name": "Alipiri Foothills Entrance, Tirupati (Andhra Pradesh)",
+      "confidence": 0.9,
+      "risk_score": 71.0
+    },
+    {
+      "id": 7,
+      "incident_number": "INC-FE-20261120-784",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 8,
+      "incident_number": "INC-FE-20261120-202",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 9,
+      "incident_number": "INC-FE-20261120-663",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Vijayawada Bus Station",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 10,
+      "incident_number": "INC-FE-20261120-226",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Vijayawada Bus Station",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 11,
+      "incident_number": "INC-FE-20261120-430",
+      "title": "Citizen Report: Public Citizen Emergency Call",
+      "category": "FIRE_SMOKE",
+      "severity": "CRITICAL",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Vijayawada ",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 12,
+      "incident_number": "INC-FE-20261120-211",
+      "title": "Citizen Report: Public Citizen Emergency Call",
+      "category": "FIRE_SMOKE",
+      "severity": "CRITICAL",
+      "status": "ASSIGNED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Vijayawada ",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 13,
+      "incident_number": "INC-FE-20261120-993",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 14,
+      "incident_number": "INC-FE-20261120-734",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 15,
+      "incident_number": "INC-FE-20261120025325-0AD5B",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 16,
+      "incident_number": "INC-FE-20261120025325-47A97",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 17,
+      "incident_number": "INC-FE-20261120033306-DB1D2",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 18,
+      "incident_number": "INC-FE-20261120033307-69969",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 19,
+      "incident_number": "INC-FE-20261120034916-E7777",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 20,
+      "incident_number": "INC-FE-20261120034916-148CE",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 21,
+      "incident_number": "INC-FE-20261120040642-7BA83",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 22,
+      "incident_number": "INC-FE-20261120040642-04D70",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 23,
+      "incident_number": "INC-FE-20261120043847-62055",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 24,
+      "incident_number": "INC-FE-20261120043848-5CB41",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 25,
+      "incident_number": "INC-FE-20261120044023-57D77",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 26,
+      "incident_number": "INC-FE-20261120044023-71D4A",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    },
+    {
+      "id": 27,
+      "incident_number": "INC-FE-20261120044130-57C3D",
+      "title": "Test AI Stampede Hazard",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "status": "VERIFIED",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "Test Terminal",
+      "confidence": 0.89,
+      "risk_score": 68.0
+    },
+    {
+      "id": 28,
+      "incident_number": "INC-FE-20261120044130-C9147",
+      "title": "Citizen Report: Fallen unconscious person",
+      "category": "FALLEN_PERSON",
+      "severity": "HIGH",
+      "status": "PENDING_REVIEW",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "location_name": "South Depot",
+      "confidence": 0.8,
+      "risk_score": 65.0
+    }
+  ],
+  "cameras": [
+    {
+      "id": 1,
+      "code": "CAM-TG-HYD-01",
+      "name": "Central Plaza CCTV Alpha",
+      "lat": 17.385,
+      "lon": 78.4867,
+      "zone": "Hyderabad Metro",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 2,
+      "code": "CAM-TG-HYD-02",
+      "name": "Charminar Market Square",
+      "lat": 17.3616,
+      "lon": 78.4747,
+      "zone": "Hyderabad Metro",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 3,
+      "code": "CAM-TG-HYD-03",
+      "name": "Hitec City Cyber Corridor",
+      "lat": 17.4504,
+      "lon": 78.3808,
+      "zone": "Hyderabad Cyberabad",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 4,
+      "code": "CAM-TG-WGL-01",
+      "name": "Warangal Kazipet Junction",
+      "lat": 17.9784,
+      "lon": 79.5041,
+      "zone": "Telangana North-East",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 5,
+      "code": "CAM-TG-KRM-01",
+      "name": "Karimnagar Collectorate Chowk",
+      "lat": 18.4386,
+      "lon": 79.1288,
+      "zone": "Telangana North",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 6,
+      "code": "CAM-TG-NZB-01",
+      "name": "Nizamabad Central Bus Square",
+      "lat": 18.6725,
+      "lon": 78.0941,
+      "zone": "Telangana West",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 7,
+      "code": "CAM-AP-VZG-01",
+      "name": "Visakhapatnam RK Beach Promenade",
+      "lat": 17.7126,
+      "lon": 83.3241,
+      "zone": "AP Coastal Zone",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 8,
+      "code": "CAM-AP-VZG-02",
+      "name": "Visakhapatnam Port Road",
+      "lat": 17.6967,
+      "lon": 83.298,
+      "zone": "AP Port Zone",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 9,
+      "code": "CAM-AP-BZA-01",
+      "name": "Vijayawada PNBS Terminal",
+      "lat": 16.509,
+      "lon": 80.62,
+      "zone": "AP Capital Region",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 10,
+      "code": "CAM-AP-BZA-02",
+      "name": "Vijayawada Benz Circle",
+      "lat": 16.5005,
+      "lon": 80.652,
+      "zone": "AP Capital Region",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 11,
+      "code": "CAM-AP-GNT-01",
+      "name": "Guntur Market Corridor",
+      "lat": 16.3067,
+      "lon": 80.4365,
+      "zone": "AP South-Central",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 12,
+      "code": "CAM-AP-TPT-01",
+      "name": "Tirupati Alipiri Checkpost",
+      "lat": 13.65,
+      "lon": 79.39,
+      "zone": "AP Rayalaseema",
+      "status": "ONLINE",
+      "is_simulated": true
+    },
+    {
+      "id": 13,
+      "code": "CAM-AP-KNL-01",
+      "name": "Kurnool Rajvihar Circle",
+      "lat": 15.8281,
+      "lon": 78.0373,
+      "zone": "AP Rayalaseema",
+      "status": "ONLINE",
+      "is_simulated": true
+    }
+  ],
+  "response_teams": [
+    {
+      "id": 1,
+      "code": "RPU-TG-01",
+      "name": "Rapid Police Patrol Unit 01 (Hyderabad)",
+      "type": "POLICE",
+      "lat": 17.389234563853936,
+      "lon": 78.48866917021068,
+      "status": "ON_SCENE",
+      "contact": "100 / +91 40 2785 2400"
+    },
+    {
+      "id": 2,
+      "code": "MED-TG-01",
+      "name": "Medical Trauma Ambulance 01 (Hyderabad)",
+      "type": "MEDICAL",
+      "lat": 17.381468963414726,
+      "lon": 78.48109555764543,
+      "status": "PATROLLING",
+      "contact": "108 / +91 40 2460 0146"
+    },
+    {
+      "id": 3,
+      "code": "FIRE-TG-01",
+      "name": "Central Fire & Rescue Tender (Hyderabad)",
+      "type": "FIRE",
+      "lat": 17.364840878005275,
+      "lon": 78.47730310405804,
+      "status": "PATROLLING",
+      "contact": "101 / +91 40 2344 2944"
+    },
+    {
+      "id": 4,
+      "code": "RPU-TG-WGL",
+      "name": "Warangal Quick Reaction Patrol",
+      "type": "POLICE",
+      "lat": 17.97487361945803,
+      "lon": 79.59532063255499,
+      "status": "PATROLLING",
+      "contact": "100 / +91 870 244 4250"
+    },
+    {
+      "id": 5,
+      "code": "RPU-AP-VZG",
+      "name": "Visakhapatnam Coastal Patrol Unit",
+      "type": "POLICE",
+      "lat": 17.702335813654784,
+      "lon": 83.30946587943397,
+      "status": "PATROLLING",
+      "contact": "100 / +91 891 256 5454"
+    },
+    {
+      "id": 6,
+      "code": "MED-AP-VZG",
+      "name": "KGH Emergency Trauma Ambulance",
+      "type": "MEDICAL",
+      "lat": 17.709,
+      "lon": 83.306,
+      "status": "AVAILABLE",
+      "contact": "108 / +91 891 256 4891"
+    },
+    {
+      "id": 7,
+      "code": "RPU-AP-BZA",
+      "name": "Vijayawada Metro Police Patrol",
+      "type": "POLICE",
+      "lat": 16.50375088244166,
+      "lon": 80.64656922293806,
+      "status": "PATROLLING",
+      "contact": "100 / +91 866 257 4100"
+    },
+    {
+      "id": 8,
+      "code": "RPU-AP-TPT",
+      "name": "Tirupati Pilgrim Safety Taskforce",
+      "type": "POLICE",
+      "lat": 13.630318309546588,
+      "lon": 79.41755247204325,
+      "status": "PATROLLING",
+      "contact": "100 / +91 877 228 7777"
+    }
+  ],
+  "live_responders": [
+    {
+      "code": "RPU-TG-01",
+      "name": "Rapid Police Patrol Unit 01 (Hyderabad Metro)",
+      "type": "POLICE",
+      "department": "Hyderabad City Police Commissionerate",
+      "department_station": "Charminar Division Control Room",
+      "contact": "100 / +91 40 2785 2400",
+      "unit_lead": "Inspector K. Naidu",
+      "sector": "Hyderabad Central & Old City",
+      "base_lat": 17.362,
+      "base_lon": 78.474,
+      "lat": 17.389234563853936,
+      "lon": 78.48866917021068,
+      "heading": 49.9,
+      "speed_kmh": 0.0,
+      "status": "ON_SCENE",
+      "assigned_incident": {
+        "incident_id": 1,
+        "incident_number": "INC-FE-20261119-001",
+        "title": "Dense Pedestrian Surge at Metro Exit",
+        "category": "CROWD_CONGESTION",
+        "severity": "HIGH",
+        "target_lat": 17.3895,
+        "target_lon": 78.489,
+        "location_name": "Metro Station Entry Gate 3, Hyderabad (Telangana)"
+      },
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.3616,
+          78.4747
+        ],
+        [
+          17.371,
+          78.48
+        ],
+        [
+          17.378,
+          78.473
+        ],
+        [
+          17.368,
+          78.468
+        ]
+      ],
+      "patrol_idx": 2
+    },
+    {
+      "code": "FIRE-TG-01",
+      "name": "Central Fire & Rescue Tender (Hyderabad)",
+      "type": "FIRE",
+      "department": "Telangana State Disaster Response & Fire Services",
+      "department_station": "Moghalpura Fire Station (HQ)",
+      "contact": "101 / +91 40 2344 2944",
+      "unit_lead": "Station Fire Officer R. Singh",
+      "sector": "Hyderabad Urban Fire Zone",
+      "base_lat": 17.363,
+      "base_lon": 78.476,
+      "lat": 17.364840878005275,
+      "lon": 78.47730310405804,
+      "heading": 47.1,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.363,
+          78.476
+        ],
+        [
+          17.369,
+          78.482
+        ],
+        [
+          17.365,
+          78.471
+        ]
+      ],
+      "patrol_idx": 1
+    },
+    {
+      "code": "RPU-TG-CYB",
+      "name": "Cyberabad Highway Patrol Interceptor",
+      "type": "POLICE",
+      "department": "Cyberabad Police Commissionerate",
+      "department_station": "Madhapur Traffic & Patrol Division",
+      "contact": "100 / +91 40 2300 2400",
+      "unit_lead": "Sub-Inspector P. Varma",
+      "sector": "HITEC City / Financial District",
+      "base_lat": 17.4435,
+      "base_lon": 78.3772,
+      "lat": 17.441654849215244,
+      "lon": 78.37200285853004,
+      "heading": 69.6,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.4435,
+          78.3772
+        ],
+        [
+          17.4334,
+          78.3866
+        ],
+        [
+          17.426,
+          78.37
+        ],
+        [
+          17.438,
+          78.36
+        ]
+      ],
+      "patrol_idx": 0
+    },
+    {
+      "code": "MED-TG-01",
+      "name": "Osmania Advanced Life Support 108 Ambulance",
+      "type": "MEDICAL",
+      "department": "EMRI 108 Emergency Medical Services Telangana",
+      "department_station": "Osmania General Hospital Emergency Bay",
+      "contact": "108 / +91 40 2460 0146",
+      "unit_lead": "Paramedic Lead Dr. S. Kulkarni",
+      "sector": "Hyderabad Central Medical Response",
+      "base_lat": 17.379,
+      "base_lon": 78.476,
+      "lat": 17.381468963414726,
+      "lon": 78.48109555764543,
+      "heading": 56.6,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.379,
+          78.476
+        ],
+        [
+          17.385,
+          78.4867
+        ],
+        [
+          17.372,
+          78.481
+        ]
+      ],
+      "patrol_idx": 1
+    },
+    {
+      "code": "RPU-TG-WGL",
+      "name": "Warangal Quick Reaction Police Patrol",
+      "type": "POLICE",
+      "department": "Warangal City Police Commissionerate",
+      "department_station": "Subedari Police Station, Warangal",
+      "contact": "100 / +91 870 244 4250",
+      "unit_lead": "Sub-Inspector M. Goud",
+      "sector": "Warangal Urban Hub",
+      "base_lat": 17.9784,
+      "base_lon": 79.5941,
+      "lat": 17.97487361945803,
+      "lon": 79.59532063255499,
+      "heading": 211.3,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.9784,
+          79.5941
+        ],
+        [
+          17.985,
+          79.602
+        ],
+        [
+          17.965,
+          79.589
+        ]
+      ],
+      "patrol_idx": 2
+    },
+    {
+      "code": "FIRE-TG-WGL",
+      "name": "Warangal City Fire & Heavy Foam Tender",
+      "type": "FIRE",
+      "department": "Telangana State Fire Services - Warangal",
+      "department_station": "Hanamkonda Fire Station",
+      "contact": "101 / +91 870 257 7101",
+      "unit_lead": "Lead Officer G. Venkatesh",
+      "sector": "Warangal Industrial & Commercial Zone",
+      "base_lat": 17.995,
+      "base_lon": 79.575,
+      "lat": 17.993902520630428,
+      "lon": 79.57642672318042,
+      "heading": 129.0,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.995,
+          79.575
+        ],
+        [
+          17.985,
+          79.588
+        ]
+      ],
+      "patrol_idx": 1
+    },
+    {
+      "code": "RPU-AP-VZG",
+      "name": "Visakhapatnam Coastal Police Patrol",
+      "type": "POLICE",
+      "department": "Visakhapatnam City Police Commissionerate",
+      "department_station": "Beach Road Coastal Police Station, Vizag",
+      "contact": "100 / +91 891 256 5454",
+      "unit_lead": "Inspector V. Ramesh",
+      "sector": "Visakhapatnam RK Beach & Marine Drive",
+      "base_lat": 17.7126,
+      "base_lon": 83.3241,
+      "lat": 17.702335813654784,
+      "lon": 83.30946587943397,
+      "heading": 63.2,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.7126,
+          83.3241
+        ],
+        [
+          17.725,
+          83.338
+        ],
+        [
+          17.6967,
+          83.298
+        ],
+        [
+          17.705,
+          83.315
+        ]
+      ],
+      "patrol_idx": 3
+    },
+    {
+      "code": "FIRE-AP-VZG",
+      "name": "Vizag Marine & High-Capacity Fire Tender",
+      "type": "FIRE",
+      "department": "Andhra Pradesh State Disaster Response & Fire Services",
+      "department_station": "Visakhapatnam Port Fire Station",
+      "contact": "101 / +91 891 256 7101",
+      "unit_lead": "Station Fire Officer D. Appa Rao",
+      "sector": "Vizag Coastal Port & Industrial Zone",
+      "base_lat": 17.702,
+      "base_lon": 83.295,
+      "lat": 17.70249923017666,
+      "lon": 83.29574884526491,
+      "heading": 235.0,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          17.702,
+          83.295
+        ],
+        [
+          17.712,
+          83.31
+        ]
+      ],
+      "patrol_idx": 0
+    },
+    {
+      "code": "RPU-AP-BZA",
+      "name": "Vijayawada City Police Interceptor",
+      "type": "POLICE",
+      "department": "Vijayawada City Police Commissionerate",
+      "department_station": "Governorpet Police Station, Vijayawada",
+      "contact": "100 / +91 866 257 4100",
+      "unit_lead": "Inspector T. Srinivas",
+      "sector": "Vijayawada MG Road / Benz Circle",
+      "base_lat": 16.5062,
+      "base_lon": 80.648,
+      "lat": 16.50375088244166,
+      "lon": 80.64656922293806,
+      "heading": 29.3,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          16.5062,
+          80.648
+        ],
+        [
+          16.509,
+          80.62
+        ],
+        [
+          16.518,
+          80.635
+        ],
+        [
+          16.495,
+          80.642
+        ]
+      ],
+      "patrol_idx": 0
+    },
+    {
+      "code": "FIRE-AP-BZA",
+      "name": "Vijayawada Central Fire Brigade",
+      "type": "FIRE",
+      "department": "AP Fire Services - Krishna District",
+      "department_station": "Kaleswara Rao Market Fire Station, Vijayawada",
+      "contact": "101 / +91 866 242 0101",
+      "unit_lead": "Fire Commander B. Mohan",
+      "sector": "Vijayawada Metro Fire Zone",
+      "base_lat": 16.512,
+      "base_lon": 80.625,
+      "lat": 16.510147259152436,
+      "lon": 80.63102140775479,
+      "heading": 287.8,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          16.512,
+          80.625
+        ],
+        [
+          16.508,
+          80.638
+        ]
+      ],
+      "patrol_idx": 0
+    },
+    {
+      "code": "RPU-AP-TPT",
+      "name": "Tirupati Pilgrim Safety Taskforce",
+      "type": "POLICE",
+      "department": "Tirupati Urban District Police",
+      "department_station": "Alipiri Security Outpost Police Station",
+      "contact": "100 / +91 877 228 7777",
+      "unit_lead": "Deputy SP N. Bhaskar",
+      "sector": "Tirupati Temple Foothills Zone",
+      "base_lat": 13.6369,
+      "base_lon": 79.4042,
+      "lat": 13.630318309546588,
+      "lon": 79.41755247204325,
+      "heading": 119.0,
+      "speed_kmh": 27.0,
+      "status": "PATROLLING",
+      "assigned_incident": null,
+      "distance_to_target_km": 0.0,
+      "eta_seconds": 0,
+      "patrol_waypoints": [
+        [
+          13.6369,
+          79.4042
+        ],
+        [
+          13.629,
+          79.42
+        ],
+        [
+          13.645,
+          79.412
+        ]
+      ],
+      "patrol_idx": 1
+    }
+  ],
+  "cad_messages": [
+    {
+      "id": "MSG-CAD-1795148477439",
+      "timestamp": "2026-11-20T04:21:17.439576Z",
+      "incident_id": 1,
+      "incident_number": "INC-FE-20261119-001",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "target_department": "Hyderabad City Police Commissionerate",
+      "target_station": "Charminar Division Control Room",
+      "assigned_unit": "RPU-TG-01",
+      "unit_lead": "Inspector K. Naidu",
+      "channel": "TETRA POLICE / FIRE OPERATIONAL FREQUENCY",
+      "message": "\u2705 [ARRIVAL CONFIRMED - ON SCENE] Unit RPU-TG-01 (Rapid Police Patrol Unit 01 (Hyderabad Metro)) has ARRIVED at Metro Station Entry Gate 3, Hyderabad (Telangana) [17.3892, 78.4887]. Verified on site. Immediate perimeter securing & containment in progress.",
+      "status": "ARRIVED_ON_SCENE"
+    },
+    {
+      "id": "MSG-CAD-1795148412617",
+      "timestamp": "2026-11-20T04:20:12.617353Z",
+      "incident_id": 1,
+      "incident_number": "INC-FE-20261119-001",
+      "category": "CROWD_CONGESTION",
+      "severity": "HIGH",
+      "target_department": "Hyderabad City Police Commissionerate",
+      "target_station": "Charminar Division Control Room",
+      "assigned_unit": "RPU-TG-01",
+      "unit_lead": "Inspector K. Naidu",
+      "channel": "CAD COMPUTER-AIDED DISPATCH & TETRA RADIO GATEWAY",
+      "message": "\ud83d\udea8 [URGENT DISPATCH ALERT TO CHARMINAR DIVISION CONTROL ROOM]\nIncident: INC-FE-20261119-001 \u2014 Dense Pedestrian Surge at Metro Exit (CROWD_CONGESTION)\nLocation: Metro Station Entry Gate 3, Hyderabad (Telangana) (Coordinates: 17.3895\u00b0N, 78.4890\u00b0E)\nPriority Severity: HIGH\nAssigned Unit: RPU-TG-01 (Rapid Police Patrol Unit 01 (Hyderabad Metro))\nStatus: Unit Dispatched. Initial ETA: 2.1 minutes (2.12 km). Live GPS Tracking Engaged.",
+      "status": "DISPATCHED_EN_ROUTE"
+    },
+    {
+      "id": "MSG-CAD-1795148284282",
+      "timestamp": "2026-11-20T04:18:04.282579Z",
+      "incident_id": 1,
+      "incident_number": "INC-FE-SYS-INIT",
+      "category": "CAD_SYSTEM_START",
+      "severity": "NORMAL",
+      "target_department": "Unified Emergency Services (Telangana & Andhra Pradesh)",
+      "target_station": "State Command and Control Center (Banjara Hills)",
+      "assigned_unit": "ALL_UNITS",
+      "unit_lead": "Command Controller",
+      "channel": "STATE CAD / TETRA RADIO SECURE GATEWAY",
+      "message": "\u2713 Inter-agency emergency telemetry online. Patrolling police and fire units linked to real-time automated dispatch.",
+      "status": "ONLINE"
+    }
+  ],
+  "drone": {
+    "callsign": "FALCON-UAV-ALPHA-1",
+    "model": "Falcon SkyScout-X4 Quad-Rotor",
+    "lat": 17.381814,
+    "lon": 78.487394,
+    "altitude_m": 68.9,
+    "speed_kmh": 28.5,
+    "battery_pct": 36.7,
+    "heading_deg": 272.5,
+    "status": "RETURNING",
+    "target_zone": "Command Station Helipad",
+    "is_simulated": true,
+    "simulation_label": "SIMULATED TELEMETRY (DEMO DATA)",
+    "signal_strength": "100% LINK (915 MHz Telemetry)",
+    "timestamp": "2026-11-20T06:04:05.015532Z"
+  },
+  "facilities": [
+    {
+      "id": 1,
+      "name": "Osmania General Emergency Hospital",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "HOSPITAL",
+      "lat": 17.378,
+      "lon": 78.474,
+      "contact": "+91 40 2460 0146",
+      "ambulances_available": 6
+    },
+    {
+      "id": 2,
+      "name": "Gandhi Medical Emergency Trauma Care",
+      "state": "Telangana",
+      "city": "Secunderabad",
+      "type": "HOSPITAL",
+      "lat": 17.425,
+      "lon": 78.502,
+      "contact": "+91 40 2750 5566",
+      "ambulances_available": 8
+    },
+    {
+      "id": 3,
+      "name": "MGM Government Civil Hospital",
+      "state": "Telangana",
+      "city": "Warangal",
+      "type": "HOSPITAL",
+      "lat": 17.9784,
+      "lon": 79.5941,
+      "contact": "+91 870 244 4250",
+      "ambulances_available": 5
+    },
+    {
+      "id": 4,
+      "name": "Central Fire & Rescue Command Station",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "FIRE_STATION",
+      "lat": 17.362,
+      "lon": 78.475,
+      "contact": "101 / +91 40 2344 2944",
+      "fire_tenders_available": 4
+    },
+    {
+      "id": 5,
+      "name": "Warangal Division Fire Station",
+      "state": "Telangana",
+      "city": "Warangal",
+      "type": "FIRE_STATION",
+      "lat": 17.9689,
+      "lon": 79.5941,
+      "contact": "101 / +91 870 257 7101",
+      "fire_tenders_available": 3
+    },
+    {
+      "id": 6,
+      "name": "Hyderabad City Police Commissionerate HQ",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "type": "POLICE_HQ",
+      "lat": 17.401,
+      "lon": 78.478,
+      "contact": "100 / +91 40 2785 2400",
+      "patrol_units_available": 12
+    },
+    {
+      "id": 7,
+      "name": "Cyberabad Police Commissionerate HQ",
+      "state": "Telangana",
+      "city": "Gachibowli",
+      "type": "POLICE_HQ",
+      "lat": 17.4399,
+      "lon": 78.3639,
+      "contact": "100 / +91 40 2785 3400",
+      "patrol_units_available": 10
+    },
+    {
+      "id": 8,
+      "name": "King George Hospital (KGH) Trauma Care",
+      "state": "Andhra Pradesh",
+      "city": "Visakhapatnam",
+      "type": "HOSPITAL",
+      "lat": 17.7088,
+      "lon": 83.3056,
+      "contact": "+91 891 256 4891",
+      "ambulances_available": 9
+    },
+    {
+      "id": 9,
+      "name": "Government General Hospital (Old GGH)",
+      "state": "Andhra Pradesh",
+      "city": "Vijayawada",
+      "type": "HOSPITAL",
+      "lat": 16.5165,
+      "lon": 80.6322,
+      "contact": "+91 866 257 5800",
+      "ambulances_available": 7
+    },
+    {
+      "id": 10,
+      "name": "SVIMS Super Specialty Hospital",
+      "state": "Andhra Pradesh",
+      "city": "Tirupati",
+      "type": "HOSPITAL",
+      "lat": 13.6369,
+      "lon": 79.4042,
+      "contact": "+91 877 228 7777",
+      "ambulances_available": 6
+    },
+    {
+      "id": 11,
+      "name": "Visakhapatnam City Police Commissionerate HQ",
+      "state": "Andhra Pradesh",
+      "city": "Visakhapatnam",
+      "type": "POLICE_HQ",
+      "lat": 17.7215,
+      "lon": 83.315,
+      "contact": "100 / +91 891 256 5454",
+      "patrol_units_available": 11
+    },
+    {
+      "id": 12,
+      "name": "Vijayawada City Police Commissionerate",
+      "state": "Andhra Pradesh",
+      "city": "Vijayawada",
+      "type": "POLICE_HQ",
+      "lat": 16.5062,
+      "lon": 80.648,
+      "contact": "100 / +91 866 257 4100",
+      "patrol_units_available": 8
+    },
+    {
+      "id": 13,
+      "name": "Visakhapatnam Port Fire & Rescue Station",
+      "state": "Andhra Pradesh",
+      "city": "Visakhapatnam",
+      "type": "FIRE_STATION",
+      "lat": 17.6967,
+      "lon": 83.298,
+      "contact": "101 / +91 891 287 3101",
+      "fire_tenders_available": 5
+    },
+    {
+      "id": 14,
+      "name": "Kurnool Government General Hospital",
+      "state": "Andhra Pradesh",
+      "city": "Kurnool",
+      "type": "HOSPITAL",
+      "lat": 15.8281,
+      "lon": 78.0373,
+      "contact": "+91 8518 255 101",
+      "ambulances_available": 4
+    }
+  ]
+}
